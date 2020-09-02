@@ -1,0 +1,122 @@
+Rank,Full Journal Title,Total Cites,Journal Impact Factor,Eigenfactor Score,field,website,empirical
+1,TRENDS IN COGNITIVE SCIENCES,27705,15.218,0.03605,experimental,https://www.cell.com/trends/cognitive-sciences/home,FALSE
+2,Nature Human Behaviour,2457,12.282,0.01419,experimental,https://www.nature.com/nathumbehav/,TRUE
+3,Advances in Experimental Social Psychology,5859,6.55,0.00289,experimental,https://www.elsevier.com/books/book-series/advances-in-experimental-social-psychology,FALSE
+4,COMPUTERS IN HUMAN BEHAVIOR,29852,5.003,0.0473,experimental,https://www.journals.elsevier.com/computers-in-human-behavior,TRUE
+5,Behavior Research Methods,18539,4.425,0.01805,experimental,https://www.springer.com/journal/13428,FALSE
+6,CORTEX,10979,4.009,0.02287,experimental,https://www.journals.elsevier.com/cortex,TRUE
+7,Current Opinion in Behavioral Sciences,2507,3.99,0.01258,experimental,https://www.journals.elsevier.com/current-opinion-in-behavioral-sciences,FALSE
+8,PSYCHONOMIC BULLETIN & REVIEW,12117,3.91,0.02061,experimental,https://www.springer.com/journal/13423,TRUE
+9,JOURNAL OF MEMORY AND LANGUAGE,9767,3.893,0.00761,experimental,https://www.journals.elsevier.com/journal-of-memory-and-language,TRUE
+10,DEVELOPMENTAL SCIENCE,7783,3.722,0.01209,experimental,https://onlinelibrary.wiley.com/journal/14677687,TRUE
+11,PSYCHOPHYSIOLOGY,14586,3.692,0.01267,experimental,https://onlinelibrary.wiley.com/journal/14698986,TRUE
+12,Social Cognitive and Affective Neuroscience,7347,3.571,0.01957,experimental,https://academic.oup.com/scan,TRUE
+13,Journal of Applied Research in Memory and Cognition,986,3.472,0.00345,experimental,https://www.journals.elsevier.com/journal-of-applied-research-in-memory-and-cognition,TRUE
+1,PSYCHOLOGICAL BULLETIN,52600,20.85,0.02712,multidisciplinary,https://www.apa.org/pubs/journals/bul,FALSE
+2,Psychological Science in the Public Interest,1591,18.25,0.00287,multidisciplinary,https://journals.sagepub.com/home/psi,TRUE
+3,Annual Review of Psychology,21277,18.156,0.0195,multidisciplinary,https://www.annualreviews.org/journal/psych,FALSE
+4,PSYCHOLOGICAL INQUIRY,4943,9.917,0.00385,multidisciplinary,https://www.tandfonline.com/action/journalInformation?show=aimsScope&journalCode=hpli20,FALSE
+5,PSYCHOLOGICAL METHODS,13193,8.43,0.0123,multidisciplinary,https://www.apa.org/pubs/journals/met,TRUE
+6,Perspectives on Psychological Science,10484,8.275,0.02237,multidisciplinary,https://journals.sagepub.com/home/pps,TRUE
+7,PSYCHOLOGICAL REVIEW,29567,6.857,0.00908,multidisciplinary,https://www.apa.org/pubs/journals/rev,FALSE
+8,AMERICAN PSYCHOLOGIST,27040,6.536,0.01277,multidisciplinary,https://www.apa.org/pubs/journals/amp,TRUE
+9,PSYCHOLOGICAL SCIENCE,32050,5.389,0.04036,multidisciplinary,https://journals.sagepub.com/home/pss,TRUE
+10,ENVIRONMENT AND BEHAVIOR,6805,5.141,0.00393,multidisciplinary,,
+11,CURRENT DIRECTIONS IN PSYCHOLOGICAL SCIENCE,12101,5.117,0.0165,multidisciplinary,,
+12,COMPUTERS IN HUMAN BEHAVIOR,29852,5.003,0.0473,multidisciplinary,,
+1,Annual Review of Clinical Psychology,6126,13.692,0.00957,clinical,https://www.annualreviews.org/journal/clinpsy,FALSE
+2,CLINICAL PSYCHOLOGY REVIEW,17220,10.255,0.02072,clinical,https://www.journals.elsevier.com/clinical-psychology-review,FALSE
+3,JOURNAL OF ABNORMAL PSYCHOLOGY,16003,6.484,0.01417,clinical,https://www.apa.org/pubs/journals/abn,TRUE
+4,PSYCHOLOGICAL MEDICINE,26702,5.813,0.03935,clinical,https://www.cambridge.org/core/journals/psychological-medicine,TRUE
+5,CLINICAL PSYCHOLOGY-SCIENCE AND PRACTICE,3680,5.541,0.00276,clinical,https://onlinelibrary.wiley.com/journal/14682850,FALSE
+6,Clinical Psychological Science,2599,5.415,0.0111,clinical,https://www.psychologicalscience.org/publications/clinical,TRUE
+7,NEUROPSYCHOLOGY REVIEW,3114,4.84,0.00405,clinical,https://www.springer.com/journal/11065,FALSE
+8,DEPRESSION AND ANXIETY,9355,4.702,0.01386,clinical,https://onlinelibrary.wiley.com/journal/15206394,TRUE
+9,JOURNAL OF CONSULTING AND CLINICAL PSYCHOLOGY,23082,4.632,0.01405,clinical,https://www.apa.org/pubs/journals/ccp,TRUE
+10,BEHAVIOUR RESEARCH AND THERAPY,18086,4.5,0.01468,clinical,,
+11,COGNITIVE BEHAVIOUR THERAPY,1686,4.413,0.00313,clinical,,
+12,International Journal of Clinical and Health Psychology,1247,4.25,0.00183,clinical,,
+1,JOURNAL OF CHILD PSYCHOLOGY AND PSYCHIATRY,19837,7.035,0.02108,developmental,https://acamh.onlinelibrary.wiley.com/journal/14697610,TRUE
+2,JOURNAL OF THE AMERICAN ACADEMY OF CHILD AND ADOLESCENT PSYCHIATRY,19831,6.936,0.01784,developmental,https://www.jaacap.org/,TRUE
+3,Developmental Cognitive Neuroscience,3177,4.966,0.01018,developmental,https://www.journals.elsevier.com/developmental-cognitive-neuroscience,TRUE
+4,CHILD DEVELOPMENT,30882,4.891,0.02231,developmental,https://srcd.onlinelibrary.wiley.com/journal/14678624,TRUE
+5,Child Development Perspectives,2999,4.636,0.00612,developmental,https://srcd.onlinelibrary.wiley.com/journal/17508606,FALSE
+6,AUTISM,5252,4.609,0.00959,developmental,https://journals.sagepub.com/home/aut,TRUE
+7,EUROPEAN CHILD & ADOLESCENT PSYCHIATRY,5422,3.941,0.00945,developmental,https://www.springer.com/journal/787,TRUE
+8,JOURNAL OF ADOLESCENT HEALTH,16287,3.9,0.02642,developmental,,
+9,Autism Research,3611,3.727,0.00855,developmental,,
+9,DEVELOPMENTAL REVIEW,3351,3.727,0.00355,developmental,,
+11,DEVELOPMENTAL SCIENCE,7783,3.722,0.01209,developmental,,
+12,JOURNAL OF CLINICAL CHILD AND ADOLESCENT PSYCHOLOGY,5724,3.656,0.00893,developmental,,
+1,PERSONALITY AND SOCIAL PSYCHOLOGY REVIEW,6712,12.321,0.00703,social,https://journals.sagepub.com/home/psr,FALSE
+2,Social Issues and Policy Review,618,8.938,0.00172,social,https://spssi.onlinelibrary.wiley.com/journal/17512409,FALSE
+3,Advances in Experimental Social Psychology,5859,6.55,0.00289,social,https://www.elsevier.com/books/book-series/advances-in-experimental-social-psychology,FALSE
+4,JOURNAL OF PERSONALITY AND SOCIAL PSYCHOLOGY,75827,6.335,0.02632,social,https://www.apa.org/pubs/journals/psp,TRUE
+5,Social Psychological and Personality Science,3480,4.385,0.01264,social,https://journals.sagepub.com/home/spp,TRUE
+6,EUROPEAN JOURNAL OF PERSONALITY,3363,3.91,0.00565,social,https://onlinelibrary.wiley.com/journal/10990984,TRUE
+7,JOURNAL OF PERSONALITY,9149,3.667,0.00742,social,https://onlinelibrary.wiley.com/journal/14676494,TRUE
+8,European Review of Social Psychology,836,3.333,0.00129,social,https://www.tandfonline.com/toc/pers20/current,FALSE
+9,POLITICAL PSYCHOLOGY,4354,3.265,0.00815,social,https://onlinelibrary.wiley.com/journal/14679221,TRUE
+10,JOURNAL OF EXPERIMENTAL SOCIAL PSYCHOLOGY,12445,3.254,0.01464,social,https://www.sciencedirect.com/journal/journal-of-experimental-social-psychology,TRUE
+11,PERSONALITY AND SOCIAL PSYCHOLOGY BULLETIN,17417,2.97,0.01403,social,,
+12,JOURNAL OF RESEARCH IN PERSONALITY,8102,2.767,0.00854,social,,
+1,JOURNAL OF THE AMERICAN PSYCHOANALYTIC ASSOCIATION,1043,1.044,0.00106,psychoanalysis,https://journals.sagepub.com/home/apa,TRUE
+2,PSYCHOANALYTIC PSYCHOLOGY,742,0.958,9.50E-04,psychoanalysis,https://www.apa.org/pubs/journals/pap,TRUE
+3,ZEITSCHRIFT FUR PSYCHOSOMATISCHE MEDIZIN UND PSYCHOTHERAPIE,303,0.85,2.60E-04,psychoanalysis,,not english
+4,BULLETIN OF THE MENNINGER CLINIC,454,0.667,3.20E-04,psychoanalysis,https://guilfordjournals.com/loi/bumc,TRUE
+5,Psychoanalytic Study of the Child,438,0.525,2.00E-04,psychoanalysis,https://www.tandfonline.com/loi/upsc20,TRUE
+6,INTERNATIONAL JOURNAL OF PSYCHOANALYSIS,2532,0.48,0.00112,psychoanalysis,https://www.tandfonline.com/toc/ripa20/current,TRUE
+7,PSYCHOANALYTIC DIALOGUES,758,0.416,0.00114,psychoanalysis,,
+8,PSYCHOANALYTIC QUARTERLY,661,0.4,7.80E-04,psychoanalysis,,
+9,PSYCHOANALYTIC INQUIRY,467,0.385,5.80E-04,psychoanalysis,,
+10,PSYCHE-ZEITSCHRIFT FUR PSYCHOANALYSE UND IHRE ANWENDUNGEN,272,0.337,1.90E-04,psychoanalysis,,
+11,CONTEMPORARY PSYCHOANALYSIS,341,0.271,5.40E-04,psychoanalysis,,
+12,FORUM DER PSYCHOANALYSE,80,0.164,6.00E-05,psychoanalysis,,
+1,International Review of Sport and Exercise Psychology,1058,14.333,0.00152,applied,https://www.tandfonline.com/toc/rirs20/current,FALSE
+2,Annual Review of Organizational Psychology and Organizational Behavior,1521,10.923,0.00744,applied,https://www.annualreviews.org/journal/orgpsych,FALSE
+3,JOURNAL OF MANAGEMENT,24234,8.88,0.022,applied,https://journals.sagepub.com/home/jom,TRUE
+4,Journal of Occupational Health Psychology,4491,7.365,0.00571,applied,https://www.apa.org/pubs/journals/ocp,TRUE
+5,LEADERSHIP QUARTERLY,10275,6.642,0.00806,applied,https://www.journals.elsevier.com/the-leadership-quarterly,TRUE
+6,PERSONNEL PSYCHOLOGY,8568,6.571,0.00603,applied,https://onlinelibrary.wiley.com/journal/17446570,TRUE
+7,JOURNAL OF APPLIED PSYCHOLOGY,41414,5.851,0.02083,applied,https://www.apa.org/pubs/journals/apl,TRUE
+8,ORGANIZATIONAL RESEARCH METHODS,6877,5.705,0.00607,applied,https://journals.sagepub.com/home/orm,FALSE
+9,JOURNAL OF ORGANIZATIONAL BEHAVIOR,12953,5.026,0.01079,applied,https://onlinelibrary.wiley.com/journal/10991379,TRUE
+10,JOURNAL OF VOCATIONAL BEHAVIOR,11679,4.075,0.00726,applied,,
+11,JOURNAL OF COUNSELING PSYCHOLOGY,8770,3.697,0.00568,applied,,
+12,Human Resource Development Quarterly,1479,3.688,5.90E-04,applied,,
+1,Behavior Research Methods,18539,4.425,0.01805,mathematical,https://www.springer.com/journal/13428,FALSE
+2,PSYCHONOMIC BULLETIN & REVIEW,12117,3.91,0.02061,mathematical,https://www.springer.com/journal/13423,TRUE
+3,JOURNAL OF MATHEMATICAL PSYCHOLOGY,3063,2.635,0.00383,mathematical,https://www.journals.elsevier.com/journal-of-mathematical-psychology,TRUE
+4,BRITISH JOURNAL OF MATHEMATICAL & STATISTICAL PSYCHOLOGY,1965,2.388,0.00348,mathematical,https://onlinelibrary.wiley.com/journal/20448317,TRUE
+5,JOURNAL OF EDUCATIONAL AND BEHAVIORAL STATISTICS,2056,2.042,0.00266,mathematical,https://journals.sagepub.com/home/jeb,FALSE
+6,PSYCHOMETRIKA,11390,1.959,0.00499,mathematical,https://www.springer.com/journal/11336,FALSE
+7,EDUCATIONAL AND PSYCHOLOGICAL MEASUREMENT,8383,1.941,0.00378,mathematical,https://journals.sagepub.com/home/epm,FALSE
+8,APPLIED PSYCHOLOGICAL MEASUREMENT,4522,1.326,0.00175,mathematical,https://journals.sagepub.com/home/apm,TRUE
+9,Methodology-European Journal of Research Methods for the Behavioral and Social Sciences,829,1.242,9.90E-04,mathematical,https://us.hogrefe.com/products/journals/methodology,FALSE
+10,JOURNAL OF CLASSIFICATION,1524,1.156,0.00189,mathematical,https://www.springer.com/journal/357,FALSE
+11,JOURNAL OF EDUCATIONAL MEASUREMENT,1716,1.056,0.00129,mathematical,https://onlinelibrary.wiley.com/journal/17453984,TRUE
+12,APPLIED MEASUREMENT IN EDUCATION,755,1.04,7.20E-04,mathematical,,
+1,EDUCATIONAL PSYCHOLOGY REVIEW,5083,5.167,0.00534,educational,https://www.springer.com/journal/10648,FALSE
+2,JOURNAL OF EDUCATIONAL PSYCHOLOGY,17685,5.028,0.01048,educational,https://www.apa.org/pubs/journals/edu,TRUE
+3,CHILD DEVELOPMENT,30882,4.891,0.02231,educational,https://srcd.onlinelibrary.wiley.com/journal/14678624,TRUE
+4,EDUCATIONAL PSYCHOLOGIST,5706,4.475,0.00339,educational,https://www.tandfonline.com/toc/hedp20/current,FALSE
+5,JOURNAL OF COUNSELING PSYCHOLOGY,8770,3.697,0.00568,educational,https://www.apa.org/pubs/journals/cou,TRUE
+6,JOURNAL OF THE LEARNING SCIENCES,2464,3.588,0.00159,educational,https://www.tandfonline.com/toc/hlns20/current,TRUE
+7,READING RESEARCH QUARTERLY,2968,3.543,0.00179,educational,https://ila.onlinelibrary.wiley.com/journal/19362722,TRUE
+8,LEARNING AND INSTRUCTION,5480,3.323,0.00748,educational,https://www.journals.elsevier.com/learning-and-instruction,TRUE
+9,Revista de Psicodidactica,589,3.05,5.50E-04,educational,,
+10,JOURNAL OF SCHOOL PSYCHOLOGY,3611,2.981,0.00373,educational,,
+11,SCIENTIFIC STUDIES OF READING,2216,2.91,0.00275,educational,,
+12,CONTEMPORARY EDUCATIONAL PSYCHOLOGY,5217,2.863,0.00538,educational,,
+1,BEHAVIORAL AND BRAIN SCIENCES,9395,17.333,0.00817,biological,https://www.cambridge.org/core/journals/behavioral-and-brain-sciences,FALSE
+2,PSYCHOPHYSIOLOGY,14586,3.692,0.01267,biological,https://onlinelibrary.wiley.com/journal/14698986,TRUE
+3,EVOLUTION AND HUMAN BEHAVIOR,4240,3.067,0.00614,biological,https://www.sciencedirect.com/journal/evolution-and-human-behavior,TRUE
+4,PHYSIOLOGY & BEHAVIOR,22074,2.826,0.0203,biological,https://www.journals.elsevier.com/physiology-and-behavior,TRUE
+5,BIOLOGICAL PSYCHOLOGY,10093,2.763,0.01188,biological,https://www.journals.elsevier.com/biological-psychology,TRUE
+6,INTERNATIONAL JOURNAL OF PSYCHOPHYSIOLOGY,8822,2.631,0.00944,biological,https://www.journals.elsevier.com/international-journal-of-psychophysiology,TRUE
+7,EXPERIMENTAL AND CLINICAL PSYCHOPHARMACOLOGY,2673,2.217,0.003,biological,,
+8,BEHAVIOURAL PROCESSES,4689,1.846,0.00695,biological,,
+9,JOURNAL OF EXPERIMENTAL PSYCHOLOGY-ANIMAL LEARNING AND COGNITION,2136,1.778,0.0013,biological,,
+10,JOURNAL OF PSYCHOPHYSIOLOGY,800,1.406,4.90E-04,biological,,
+11,LEARNING & BEHAVIOR,893,1.342,0.00111,biological,,
+12,LEARNING AND MOTIVATION,964,0.894,6.50E-04,biological,,
