@@ -66,5 +66,5 @@ write_csv(highImpactSample,here('data','primary','prepareSamples','highImpactSam
 # where sample journals have already been coded, extract the data from TOP-d
 top %>% 
   filter(Journal %in% sampleJournalsInTop$matchInTOP) %>%
-  write_csv(here('data','primary','prepareSamples','top_data_for_sample.csv'))
+  write_csv(here('data','primary','topData.csv'))
 
