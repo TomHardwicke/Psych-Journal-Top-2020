@@ -54,3 +54,4 @@ analysis/~$eliminaryAnalysis.docx
 *.Rproj
 protocol/protocol.docx
 analysis/preliminaryAnalyses.Rmd
+analysis/preliminaryAnalyses.html
