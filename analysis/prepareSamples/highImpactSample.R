@@ -7,6 +7,7 @@ library(here)
 journals_by_IF <- read_csv(here('data','primary','prepareSamples','journals_by_IF.csv')) # load list of journals ranked by impact factor
 
 # filter out journals identified as non-empirical during manual screening
+# update Jan 4, 2021 - the journal *Psychological Science in the Public Interest* was originally included in the high impact sample but identified during data extraction as a review only journal. Therefore we are excluding it now and replacing it with the next available rank.
 journals_by_IF <- journals_by_IF %>%
   filter(`Full Journal Title` %notin% 
            c("TRENDS IN COGNITIVE SCIENCES",
@@ -38,7 +39,8 @@ journals_by_IF <- journals_by_IF %>%
              "PERSONALITY AND SOCIAL PSYCHOLOGY REVIEW",
              "Social Issues and Policy Review",
              "Advances in Experimental Social Psychology",
-             "European Review of Social Psychology"))
+             "European Review of Social Psychology",
+             "Psychological Science in the Public Interest"))
 
 journals_by_IF <- journals_by_IF %>% 
   mutate(`Full Journal Title` = toupper(`Full Journal Title`)) # capitalize journal titles as this is the standard in WOS-psych-d
