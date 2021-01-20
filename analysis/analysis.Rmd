@@ -1,0 +1,365 @@
+---
+title: "TOP Assessment of Psychology Journals: Preliminary Analyses"
+description: |
+
+author:
+  - name: Tom Hardwicke 
+    affiliation: University of Amsterdam
+    orcid_id: 0000-0001-9485-4952
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r load_packages, include=FALSE}
+library(tidyverse)
+library(here)
+library(DescTools)
+library(gt)
+library(cowplot)
+library(scales)
+```
+
+```{r loadData}
+d_top <- read_csv(here("data", "primary", "topData.csv"))
+d_extract <- read_csv(here("data", "primary", "extractedData.csv"))
+d_random <- read_csv(here("data", "primary", "prepareSamples", "randomSample.csv"))
+d_highImpact <- read_csv(here("data", "primary", "prepareSamples", "highImpactSample.csv"))
+```
+
+```{r}
+# *Psychological Science in the Public Interest* (PSPI) was originally included in the high impact sample; however, this was an error because it is a review-only journal. We have therefore replaced it with the next available high impact journal in the 'Multidisciplinary' category: *Environment and Behavior*. The code below removes PSPI from the dataset:
+d_extract <- d_extract %>%
+  filter(`Enter journal name` != "Psychological Science in the Public Interest")
+```
+
+```{r}
+# harmonize journal names in the TOP data with the Web of Science names
+d_top <- d_top %>%
+  mutate(Journal = case_when(
+    Journal == "SPORT, EXERCISE, AND PERFORMANCE PSYCHOLOGY" ~ "SPORT EXERCISE AND PERFORMANCE PSYCHOLOGY",
+    Journal == "JOURNAL OF EXPERIMENTAL PSYCHOLOGY: LEARNING, MEMORY, AND COGNITION" ~ "JOURNAL OF EXPERIMENTAL PSYCHOLOGY-LEARNING MEMORY AND COGNITION",
+    Journal == "JOURNAL OF EXPERIMENTAL PSYCHOLOGY: ANIMAL LEARNING AND COGNITION" ~ "JOURNAL OF EXPERIMENTAL PSYCHOLOGY-ANIMAL LEARNING AND COGNITION",
+    Journal == "PSYCHONOMIC BULLETIN AND REVIEW" ~ "PSYCHONOMIC BULLETIN & REVIEW",
+    Journal == "NATURE HUMAN BEHAVIOR" ~ "NATURE HUMAN BEHAVIOUR",
+    Journal == "THE LEADERSHIP QUARTERLY" ~ "LEADERSHIP QUARTERLY",
+    TRUE ~ Journal
+  ))
+```
+
+```{r}
+# merge top and extracted data
+
+# harmonize column names
+d_extract <- d_extract %>%
+  select(journal = `Enter journal name`, `Data citation`, `Data transparency`, `Analysis transparency` = `Analytical code transparency`, `Materials transparency`, `Reporting guidelines`, `Preregistration (study)` = `Study preregistration`, `Preregistration (analysis)` = `Analysis pre-registration`, `Replication`, `Publication bias`, `Badges` = `Open science badges`)
+
+d_top <- d_top %>%
+  select(journal = Journal, `Data citation` = `Data citation score`, `Data transparency` = `Data transparency score`, `Analysis transparency` = `Analysis code transparency score`, `Materials transparency` = `Materials transparency score`, `Reporting guidelines` = `Design & analysis reporting guidelines score`, `Preregistration (study)` = `Study preregistration score`, `Preregistration (analysis)` = `Analysis plan preregistration score`, `Replication` = `Replication score`, `Publication bias` = `Registered reports & publication bias score`, `Badges` = `Open science badges score`)
+
+# harmonize codes
+d_extract <- d_extract %>%
+  mutate_at(
+    .vars = vars(-journal), # for all columns except for journal
+    .funs = list(~ str_sub(., 1, 1))
+  ) # select the first character only (i.e., the TOP score)
+
+# combine data frames
+d <- rbind(d_top, d_extract) %>%
+  mutate_at(
+    .vars = vars(-journal), # for all columns except for journal
+    .funs = list(~ factor(., levels = c("0", "1", "2", "3")))
+  ) # convert to factor and make sure all levels are represented
+```
+
+```{r}
+# harmonize journal names by making them uppercase
+d <- d %>%
+  mutate(journal = str_to_upper(journal))
+
+# identify which journals were in the random sample and the influential sample
+d <- d %>%
+  mutate(sample = case_when(
+    journal %in% d_random$Journal ~ "random",
+    journal %in% d_highImpact$Journal ~ "influential",
+    TRUE ~ "not recognised"
+  ))
+```
+
+```{r}
+calcCI <- function(input, varName) {
+  d <- input %>%
+    rename(value = all_of(varName)) %>%
+    count(value, .drop = F) %>%
+    na.omit()
+
+  # add confidence intervals
+  d <- cbind(d, MultinomCI(d$n, conf.level = 0.95, method = "sisonglaz")) %>%
+    mutate(
+      variable = varName,
+      percent = est * 100,
+      lwr.ci = lwr.ci * 100,
+      upr.ci = upr.ci * 100,
+      N = sum(n)
+    )
+  return(d)
+}
+```
+
+```{r}
+d_influential <- d %>%
+  filter(sample == "influential")
+
+d_influential_summary <- rbind(
+  calcCI(d_influential, "Data citation"),
+  calcCI(d_influential, "Data transparency"),
+  calcCI(d_influential, "Analysis transparency"),
+  calcCI(d_influential, "Materials transparency"),
+  calcCI(d_influential, "Reporting guidelines"),
+  calcCI(d_influential, "Preregistration (study)"),
+  calcCI(d_influential, "Preregistration (analysis)"),
+  calcCI(d_influential, "Replication"),
+  calcCI(d_influential, "Publication bias"),
+  calcCI(d_influential, "Badges")
+) %>%
+  mutate(
+    sample = "influential",
+    variable = factor(variable)
+  ) %>%
+  select(sample, variable, everything())
+
+d_influential_summary$lwr.ci <- NA
+d_influential_summary$upr.ci <- NA
+
+d_random <- d %>%
+  filter(sample == "random")
+
+d_random_summary <- rbind(
+  calcCI(d_random, "Data citation"),
+  calcCI(d_random, "Data transparency"),
+  calcCI(d_random, "Analysis transparency"),
+  calcCI(d_random, "Materials transparency"),
+  calcCI(d_random, "Reporting guidelines"),
+  calcCI(d_random, "Preregistration (study)"),
+  calcCI(d_random, "Preregistration (analysis)"),
+  calcCI(d_random, "Replication"),
+  calcCI(d_random, "Publication bias"),
+  calcCI(d_random, "Badges")
+) %>%
+  mutate(
+    sample = "random",
+    variable = factor(variable)
+  ) %>%
+  select(sample, variable, everything())
+
+d_summary <- rbind(d_random_summary, d_influential_summary)
+
+# reorder variables for presentation purposes
+# we will order by number of policy adoptions (levels 1,2, or 3) for each policy
+thisOrder <- d_summary %>%
+  group_by(variable, value) %>%
+  summarise(n = sum(n)) %>%
+  filter(value != 0) %>% # remove instances of no policy (level 0)
+  group_by(variable) %>%
+  summarise(n = sum(n)) %>%
+  arrange(desc(n)) %>%
+  pull(variable) %>%
+  as.character()
+
+d_summary <- d_summary %>%
+  mutate(variable = factor(variable,levels=thisOrder))
+```
+
+This document contains all of the figures, tables, and numbers reported in the RRR Annual Reviews paper for the project assessing journal adoption of TOP policies. The document is generated from underlying R Markdown code in order to make all results computationally reproducible.
+
+## Stacked-bar graph
+
+```{r}
+# colour palette is based on colour brewer 'RdBu'
+
+red0 <- "#FFFFFF"
+red1 <- "#FDDBC7"
+red2 <- "#F4A582"
+red3 <- "#B2182B"
+
+blue0 <- "#FFFFFF"
+blue1 <- "#D1E5F0"
+blue2 <- "#92C5DE"
+blue3 <- "#2166AC"
+
+plt <- d_summary %>%
+  mutate(value = factor(value, rev(levels(value)))) %>%
+    ggplot(aes(x = sample, y = percent)) +
+      geom_bar(aes(fill = interaction(value,sample)), width = .7, stat = 'identity', colour = 'black') +
+      facet_grid(rows = vars(variable), switch = 'y') +
+      scale_y_continuous(expand = c(0,4)) +
+      scale_fill_manual(
+        values = c(red3,red2,red1,red0,blue3,blue2,blue1,blue0),
+        labels = c('3','2','1','0','3','2','1','0'),
+        guide = guide_legend(
+          title = 'random sample\n\ninfluential sample',
+          byrow = T, 
+          reverse = T)) +
+      ylab("journals (%)") +
+      coord_flip() +
+      theme(text = element_text(size = 14),
+            legend.position = 'bottom',
+            axis.text = element_text(size = 12),
+            axis.title.y = element_blank(),
+            axis.text.y = element_blank(),
+            axis.ticks.y = element_blank(),
+            strip.text.y.left = element_text(angle = 0),
+            strip.background = element_blank(),
+            strip.text = element_text(size = 14),
+            panel.background = element_blank(),
+            panel.grid.major.x = element_line(colour = 'black', size = .5))
+```
+
+```{r fig.width=12,fig.height=10}
+plt
+```
+
+## Tables of descriptives
+
+Table \@ref(tab:tableRandom) shows counts, percentages, and CIs for the random sample.
+
+```{r tableRandom}
+d_summary %>% 
+  filter(sample == 'random') %>% 
+  mutate(string = paste0(n,' (', round(percent,0),'% [',round(lwr.ci),',',round(upr.ci),'])')) %>%
+  pivot_wider(id_cols = 'variable', names_from = 'value', values_from = 'string') %>%
+  mutate(`3` = ifelse(variable == 'Badges', 'N/A', `3`)) %>% # remove values at open badges level 3 (there is no open badges level)
+  gt(caption = 'Descriptives for random sample') %>%
+  tab_footnote(
+    footnote = "There is no data in this cell because TOP does not specify a level 3 for the open badges policy.",
+    locations = cells_body(
+      columns = vars('3'),
+      rows = 10)
+  ) %>%
+  tab_spanner(
+    label = md("**policy level (n, %)**"),
+    columns = vars('0','1','2','3')
+  ) %>%
+  cols_label(
+    `0` = md('**0**'),
+    `1` = md('**1**'),
+    `2` = md('**2**'),
+    `3` = md('**3**'),
+    variable = md('**policy**')
+  ) %>% 
+  cols_align(
+    align = "right",
+    columns = vars('0','1','2','3')
+  )
+```
+
+Table \@ref(tab:tableInfluential) shows counts and percentages for the influential journals sample.
+
+```{r tableInfluential}
+d_summary %>% 
+  filter(sample == 'influential') %>% 
+  mutate(string = paste0(n,' (', round(percent,0),'%)')) %>%
+  pivot_wider(id_cols = 'variable', names_from = 'value', values_from = 'string') %>%
+  mutate(`3` = ifelse(variable == 'Badges', 'N/A', `3`)) %>% # remove values at open badges level 3 (there is no open badges level)
+  gt(caption = 'Descriptives for influential sample') %>%
+  tab_footnote(
+    footnote = "There is no data in this cell because TOP does not specify a level 3 for the open badges policy.",
+    locations = cells_body(
+      columns = vars('3'),
+      rows = 10)
+  ) %>%
+  tab_spanner(
+    label = md("**policy level (n, %)**"),
+    columns = vars('0','1','2','3')
+  ) %>%
+  cols_label(
+    `0` = md('**0**'),
+    `1` = md('**1**'),
+    `2` = md('**2**'),
+    `3` = md('**3**'),
+    variable = md('**policy**')
+  ) %>% 
+  cols_align(
+    align = "right",
+    columns = vars('0','1','2','3')
+  )
+```
+
+## Numbers reported in text
+
+```{r}
+noAdoption <- d_summary %>% filter(value == 0) %>% 
+  summarise(min = min(percent), max = max(percent), median = round(median(percent),0))
+```
+
+For each of the ten standards, the vast majority of journals had not adopted TOP-compliant policies (i.e., level 0; range `r noAdoption$min`-`r noAdoption$max`%, median = `r noAdoption$median`%). 
+
+```{r}
+sampleCompare <- d_summary %>% filter(value == 0) %>% 
+  group_by(sample) %>% 
+  summarise(minAdoption = 100-max(percent), maxAdoption = 100-min(percent), median = 100-median(percent))
+```
+
+For 8 out of the 10 standards, high-impact journals were more likely than random journals to have adopted a policy (i.e., levels 1, 2, or 3), though the overall frequency of policy adoption was comparable (`r sampleCompare  %>% filter(sample == 'influential') %>% pull(median)`% and `r sampleCompare  %>% filter(sample == 'random') %>% pull(median)`% respectively). 
+
+```{r}
+d_overall_summary <- rbind(
+  calcCI(d, "Data citation"),
+  calcCI(d, "Data transparency"),
+  calcCI(d, "Analysis transparency"),
+  calcCI(d, "Materials transparency"),
+  calcCI(d, "Reporting guidelines"),
+  calcCI(d, "Preregistration (study)"),
+  calcCI(d, "Preregistration (analysis)"),
+  calcCI(d, "Replication"),
+  calcCI(d, "Publication bias"),
+  calcCI(d, "Badges")
+) %>%
+  mutate(
+    sample = "both",
+    variable = factor(variable)
+  ) %>%
+  select(sample, variable, everything())
+
+d_overall_summary$lwr.ci <- NA
+d_overall_summary$upr.ci <- NA
+
+# we will order by proportion of policy adoptions (levels 1,2, or 3) for each policy
+overallAdoption <- d_overall_summary %>%
+  filter(value != 0) %>% # remove instances of no policy (level 0)
+  group_by(variable) %>%
+  summarise(percentWithPolicy = round(sum(percent),0)) %>%
+  arrange(desc(percentWithPolicy))
+```
+
+Combining samples, TOP-compliant policies were most common for citing data sources (`r overallAdoption %>% filter(variable == 'Data citation') %>% pull(percentWithPolicy)`%) and using reporting guidelines (`r overallAdoption %>% filter(variable == 'Reporting guidelines') %>% pull(percentWithPolicy)`%), and were least common for preregistration of studies (`r overallAdoption %>% filter(variable == 'Preregistration (study)') %>% pull(percentWithPolicy)`%) and analysis plans (`r overallAdoption %>% filter(variable == 'Preregistration (study)') %>% pull(percentWithPolicy)`%). Overall, these findings suggest modest adoption of transparency and reproducibility-related policies among psychology journals.
+
+## Pre-registration statement {.appendix}
+The study protocol (hypotheses, methods, and analysis plan) was pre-registered on the Open 
+Science Framework on 4th September, 2020 (https://osf.io/n9325/). All deviations from this 
+protocol are explicitly acknowledged in this report. 
+
+## Data, materials, and analysis script availability statement {.appendix}
+All data, materials, and analysis scripts related to this study are publicly available on the Open Science Framework (https://osf.io/jf7mn/). To facilitate reproducibility, this report was written by interleaving regular prose and analysis code using knitr (Xie, 2015) and distill (Allaire, et al., 2018), and is available in a Binder container (PENDING) which re-creates the software environment in which the original analyses were performed.
+
+## Conflict of interest statement {.appendix}
+B.A.N. is co-founder and Executive Director of the Center for Open Science and was involved in
+the development, promotion, and administration of the Transparency and Openness Promotion
+Guidelines. T.E.H. declares no conflict of interest.
+
+
+
+
+
+
+
+
+
+
+
+
