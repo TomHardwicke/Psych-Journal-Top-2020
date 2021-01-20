@@ -1,0 +1,28 @@
+Type: Compendium
+Package: TOP Assessment of Psychology Journals
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.1
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com")
+Description: TOP Assessment of Psychology Journals for RRR
+    Annual Revew paper.
+License: What license it uses
+Depends: 
+    cowplot,
+    distill,
+    ggplot2,
+    gt,
+    here,
+    knitr,
+    rmarkdown,
+    scales,
+    stringdist,
+    tidyverse
+Remotes: 
+    rstudio/distill,
+    rstudio/gt
+Encoding: UTF-8
+LazyData: true
