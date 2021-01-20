@@ -1,5 +1,5 @@
 ---
-title: "TOP Assessment of Psychology Journals: Preliminary Analyses"
+title: "TOP Assessment of Psychology Journals: Analyses"
 description: |
 
 author:
