@@ -1,6 +1,5 @@
 install.packages(
   "cowplot",
-  "DescTools",
   "distill",
   "ggplot2",
   "gt",
