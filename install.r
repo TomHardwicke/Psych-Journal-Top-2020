@@ -1,3 +1,4 @@
+install.packages("knitr")
 install.packages("distill")
 install.packages("tidyverse")
 install.packages("here")
