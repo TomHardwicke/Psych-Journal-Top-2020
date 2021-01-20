@@ -19,10 +19,14 @@ knitr::opts_chunk$set(echo = FALSE)
 ```{r load_packages, include=FALSE}
 library(tidyverse)
 library(here)
-library(DescTools)
 library(gt)
 library(cowplot)
 library(scales)
+```
+
+```{r load_functions}
+# load custom functions
+source(here('analysis','functions.R'))
 ```
 
 ```{r loadData}
@@ -89,26 +93,6 @@ d <- d %>%
     journal %in% d_highImpact$Journal ~ "influential",
     TRUE ~ "not recognised"
   ))
-```
-
-```{r}
-calcCI <- function(input, varName) {
-  d <- input %>%
-    rename(value = all_of(varName)) %>%
-    count(value, .drop = F) %>%
-    na.omit()
-
-  # add confidence intervals
-  d <- cbind(d, MultinomCI(d$n, conf.level = 0.95, method = "sisonglaz")) %>%
-    mutate(
-      variable = varName,
-      percent = est * 100,
-      lwr.ci = lwr.ci * 100,
-      upr.ci = upr.ci * 100,
-      N = sum(n)
-    )
-  return(d)
-}
 ```
 
 ```{r}
