@@ -1,7 +1,0 @@
-install.packages("distill")
-install.packages("tidyverse")
-install.packages("here")
-install.packages("DescTools")
-install.packages("gt")
-install.packages("cowplot")
-install.packages("scales")
