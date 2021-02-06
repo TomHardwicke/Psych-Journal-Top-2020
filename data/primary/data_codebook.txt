@@ -1,0 +1,88 @@
+*Data codebook*
+
+Project title: Journal policies related to research transparency and reproducibility in psychology: A cross-sectional assessment of influential journals and randomly-selected journals
+
+This codebook documents two datasets: 
+
+extractedData.csv
+topData.csv. 
+
+Each dataset is described in more detail below.
+
+# Dataset 1: extractedData.csv
+
+Description/source: This dataset contains information recorded in a Google Form by the two authors (BAN, TEH) when assessing journal compliance with TOP polices. The dataset has one row per journal.
+
+Columns:
+
+Timestamp = the time and date that the data were recorded in US format (month/day/year)	
+Select your initials = initials of coder assigned to this journal	
+Enter journal name = name of journal	
+Enter society affiliation (if applicable)	= society affiliation of journal
+Provide perma.cc link(s) to policy information on journal website = a copy of any relevant policy information on the journals website
+
+The following columns each refer to one of the TOP standards (e.g., "Data citation") and an accompanying quote (e.g., "Data citation justification quote") from the policy information on the journal website that justifies the score given for that standard. 
+	
+Data citation	
+Data citation justification quote	
+Data transparency	
+Data transparency justification quote	
+Analytical code transparency	
+Analytical code transparency justification quote	
+Materials transparency	
+Materials transparency justification quote	
+Reporting guidelines	
+Reporting guidelines justification quote	
+Study preregistration	
+Study preregistration justification quote	
+Analysis pre-registration	
+Analysis pre-registration justification text	
+Replication	
+Replication justification quote	
+Publication bias	
+Publication bias justification quote	
+Open science badges	
+Open science badges justification quote
+
+The final column was used to take notes so the coders could check each other's work and discuss any unusual cases:
+	
+If there's anything unusual or important to note about this journal write it here
+
+# Dataset 2: topData.csv
+
+Description/source: This dataset contains extant data extracted for assessment of journal TOP Factor maintained by the Center for Open Science (https://osf.io/qatkz/). Only journals included in the sampling frame of this study are included in this dataset. The dataset has one row per journal.
+
+
+Columns:
+
+Journal	= name of journal
+Issn = journal's International Standard Serial Number
+Publisher = journal's publisher	
+Society	= journal's society affiliation (if any)
+Author guideline url = link to the author guidelines on journal website
+
+The following columns each refer to one of the TOP standards (e.g., "Data citation score") and an accompanying quote (e.g., "Data citation justification") from the policy information on the journal website that justifies the score given for that standard. 
+	
+Data citation score	
+Data citation justification	
+Data transparency score	
+Data transparency justification	
+Analysis code transparency score	
+Analysis code transparency justification	
+Materials transparency score	
+Materials transparency justification	
+Design & analysis reporting guidelines score	
+Design & analysis reporting guidelines justification	
+Study preregistration score	
+Study preregistration justification	
+Analysis plan preregistration score	
+Analysis plan preregistration justification	
+Replication score	
+Replication justification	
+Registered reports & publication bias score	
+Registered reports & publication bias justification	
+Open science badges score
+Open science badges justification	
+
+The final column is the total of the scores for each standard (i.e., the 'TOP Factor')
+Total
